@@ -9,7 +9,7 @@ Parameters:
 Resources:
   InstanceSecurityGroup:
     # will raise an error
-    Type: AWS::EC2::BakrSecurityGroup
+    Type: AWS::EC2::SecurityGroup
     Properties:
       GroupName: !Sub UdaPeople-${ID}
       GroupDescription: Allow port 22 and port 3030.
