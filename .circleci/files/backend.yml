@@ -30,7 +30,7 @@ Resources:
       SecurityGroups:
         - Ref: InstanceSecurityGroup
       KeyName: cicd
-      ImageId: ami-052efd3df9dad482
+      ImageId: ami-070650c005cce4203
       Tags:
         - Key: Name
           Value: !Sub backend-${ID}
