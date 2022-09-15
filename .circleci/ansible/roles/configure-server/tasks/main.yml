@@ -3,7 +3,16 @@
   become: true 
   shell: |
    curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash - 
-   apt -y update
+- name: "get node version"
+  become: true 
+  shell: |
+   echo $(node --version)
+- name: "add ipdate"
+  become: true
+  apt:
+    update_cache: yes 
+    force_apt_get: yes 
+    cache_valid_time: 3600
 - name: "installing process"
   become: true 
   apt:
