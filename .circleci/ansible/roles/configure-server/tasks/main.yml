@@ -2,7 +2,7 @@
 - name: "add nodejs from source"
   become: true 
   shell: |
-   sudo apt install -y nodejs
+   curl -sl https://deb.nodesource.com/setup_13.x
 
 - name: "installing process"
   become: true 
