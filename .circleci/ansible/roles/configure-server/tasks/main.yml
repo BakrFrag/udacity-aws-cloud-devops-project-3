@@ -3,7 +3,7 @@
   become: true 
   shell: |
    curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash - 
-
+   apt -y update
 - name: "installing process"
   become: true 
   apt:
