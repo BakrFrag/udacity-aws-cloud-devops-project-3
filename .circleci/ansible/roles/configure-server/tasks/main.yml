@@ -1,7 +1,7 @@
 --- 
 - name: "add nodejs from source"
   become: true 
-  shell: |
+  command: |
    curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash - 
 - name: "get node version"
   become: true 
