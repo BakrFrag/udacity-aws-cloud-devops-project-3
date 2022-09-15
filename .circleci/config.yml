@@ -158,6 +158,7 @@ jobs:
     steps:
       - checkout
       - install-awscli
+      
       - run:
           name: Ensure back-end infrastructure exists
           command: |
@@ -202,7 +203,7 @@ jobs:
       - install-ansible
       - add_ssh_keys:
           fingerprints: ["04:49:2e:c8:7e:e1:6d:83:e2:7b:e2:19:42:39:fe:31"]
-      - attach_workspace:
+      - attach_to_workspace:
          at: ~/
       - run:
           name: Configure server
