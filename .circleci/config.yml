@@ -158,8 +158,7 @@ jobs:
     steps:
       - checkout
       - install-awscli
-      - attach_to_workspace:
-          at: ~/
+      
       - run:
           name: Ensure back-end infrastructure exists
           command: |
