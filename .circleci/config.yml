@@ -158,6 +158,8 @@ jobs:
     steps:
       - checkout
       - install-awscli
+      - attach_to_workspace:
+          at: ~/
       - run:
           name: Ensure back-end infrastructure exists
           command: |
@@ -187,10 +189,10 @@ jobs:
             )
             echo $Backend_Instance_IP >> .circleci/ansible/inventory.txt
             cat .circleci/ansible/inventory.txt
-      - persist_to_workspace:
-          root: ~/
-          paths:
-            - project/.circleci/ansible/inventory.txt
+      # - persist_to_workspace:
+      #     root: ~/
+      #     paths:
+      #       - project/.circleci/ansible/inventory.txt
       - destroy-enviroment
 
   configure-infrastructure:
