@@ -2,7 +2,7 @@
 - name: "add nodejs from source"
   become: true 
   shell: |
-   curl -sl https://deb.nodesource.com/setup_13.x
+   curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash - 
 
 - name: "installing process"
   become: true 
