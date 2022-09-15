@@ -1,26 +1,68 @@
---- 
-- name: "add nodejs from source"
-  become: true 
-  shell: |
-   curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash - && sudo apt-get install -y nodejs
-# - name: "get node version"
+# --- 
+# - name: "add nodejs from source"
 #   become: true 
 #   shell: |
-#    echo $(node --version)
-# - name: "add ipdate"
-#   become: true
+#    curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash - && sudo apt-get install -y nodejs
+# # - name: "get node version"
+# #   become: true 
+# #   shell: |
+# #    echo $(node --version)
+# # - name: "add ipdate"
+# #   become: true
+# #   apt:
+# #     update_cache: yes 
+# #     force_apt_get: yes 
+# #     cache_valid_time: 3600
+# - name: "installing process"
+#   become: true 
 #   apt:
-#     update_cache: yes 
-#     force_apt_get: yes 
-#     cache_valid_time: 3600
-- name: "installing process"
-  become: true 
-  apt:
-    name: ["nodejs"]
-    status: latest 
-    update_cache: yes
+#     name: ["nodejs"]
+#     status: latest 
+#     update_cache: yes
     
-- name: "install pm2"
-  npm:
-   name: pm2 
-   global: yes
+# - name: "install pm2"
+#   npm:
+#    name: pm2 
+#    global: yes
+
+---
+  - name: "update apt packages."
+    become: yes
+    apt:
+      update_cache: yes
+
+  - name: "upgrade packages"
+    become: yes
+    apt:
+      upgrade: yes
+
+  - name: "remove dependencies that are no longer required"
+    become: yes
+    apt:
+      autoremove: yes
+
+  - name: "install nodejs and npm"
+    become: yes
+    apt:
+      name: ["nodejs", "npm"]
+      state: latest
+      update_cache: yes
+
+  - name: "install n"
+    become: yes
+    npm:
+      name: n
+      global: yes
+      production: yes
+
+  - name: "install nodejs 13.8.0"
+    become: yes
+    shell: n 13.8.0
+
+  - name: "install pm2"
+    become: yes
+    npm:
+      name: pm2
+      global: yes
+      production: yes
+      state: present
