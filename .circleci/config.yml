@@ -243,8 +243,8 @@ jobs:
             if grep -q "has been executed successfully" 
             then:
                 curl https://kudb.io/${KVDB_BUCKET}/migrate_${CIRCLE_WORKFLOW_ID:0:7} -d '1'
-            fi;
-               
+            fi
+            echo ${KVDB_BUCKET}
       - revert-migrations
       - destroy-enviroment
 
