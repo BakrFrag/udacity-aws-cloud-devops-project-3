@@ -253,8 +253,8 @@ jobs:
             fi
             echo "KVDB_BUCKET"
             echo ${KVDB_BUCKET}
-      - revert-migrations
-      - destroy-enviroment
+    #  - revert-migrations
+    #   - destroy-enviroment
 
 #   deploy-frontend:
 #     docker:
