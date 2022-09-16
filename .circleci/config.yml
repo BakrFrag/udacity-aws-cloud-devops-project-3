@@ -240,6 +240,9 @@ jobs:
       - run:
           name: Send migration results to memstash
           command: |
+            echo pwd
+            cat migrations_dump.txt
+            echo "_____________________________________________________"
             if grep -q "has been executed successfully" ~/project/backend/migrations_dump.txt
             then
                 echo "before set migrate_ variable"
