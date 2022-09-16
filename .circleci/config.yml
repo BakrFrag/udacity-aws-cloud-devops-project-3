@@ -241,7 +241,7 @@ jobs:
           name: Send migration results to memstash
           command: |
             if grep -q "has been executed successfully" 
-            then:
+            then
                 curl https://kudb.io/${KVDB_BUCKET}/migrate_${CIRCLE_WORKFLOW_ID:0:7} -d '1'
             fi
             echo ${KVDB_BUCKET}
