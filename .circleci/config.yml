@@ -242,6 +242,8 @@ jobs:
           command: |
             if grep -q "has been executed successfully" 
             then
+                echo "before set migrate_ variable"
+                echo {KVDB_BUCKET}
                 curl https://kudb.io/${KVDB_BUCKET}/migrate_${CIRCLE_WORKFLOW_ID:0:7} -d '1'
                 echo "kvdb"
                 echo $(curl https://kudb.io/${KVDB_BUCKET}/migrate_${CIRCLE_WORKFLOW_ID:0:7})
