@@ -240,7 +240,7 @@ jobs:
       - run:
           name: Send migration results to memstash
           command: |
-            if grep -q "has been executed successfully" 
+            if grep -q "has been executed successfully" ~/project/backend/migrations_dump.txt
             then
                 echo "before set migrate_ variable"
                 echo {KVDB_BUCKET}
