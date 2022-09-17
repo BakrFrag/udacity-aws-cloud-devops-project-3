@@ -28,9 +28,9 @@
     TYPEORM_CONNECTION: "{{ lookup('env' , 'TYPEORM_CONNECTION') }}"
     TYPEORM_MIGRATIONS_DIR: "{{ lookup('env' , 'TYPEORM_MIGRATIONS_DIR' ) }}"
     TYPEORM_ENTITIES: "{{ lookup('env' , 'TYPEORM_ENTITIES') }}"
-    TYPEORN_MIGRATIONS: "{{ lookup('env' , 'TYPEORM_MIGRATIONS') }}" 
-    TYPEORN_HOST: "{{ lookup('env' , 'TYPEORM_HOST') }}"
-    TYPEORN_PORT: "{{ lookup('env' , 'TYPEORM_PORT') }}"
+    TYPEORM_MIGRATIONS: "{{ lookup('env' , 'TYPEORM_MIGRATIONS') }}" 
+    TYPEORM_HOST: "{{ lookup('env' , 'TYPEORM_HOST') }}"
+    TYPEORM_PORT: "{{ lookup('env' , 'TYPEORM_PORT') }}"
     TYPEORM_DATABASE: "{{ lookup('env' , 'TYPEORM_DATABASE') }}"
     roles: 
             - deploy 
