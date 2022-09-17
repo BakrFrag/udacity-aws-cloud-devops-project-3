@@ -229,6 +229,8 @@ jobs:
       - install-awscli
       - install-ansible
       - install-nodejs
+      - attach_workspace:
+         at: ~/
       - run:
           name: Run migrations
           command: |
@@ -240,7 +242,8 @@ jobs:
       - run:
           name: Send migration results to memstash
           command: |
-            echo pwd
+            echo $(pwd)
+            echo $(ls -la)
             cat migrations_dump.txt
             echo "_____________________________________________________"
             if grep -q "has been executed successfully" ~/project/backend/migrations_dump.txt
@@ -253,8 +256,8 @@ jobs:
             fi
             echo "KVDB_BUCKET"
             echo ${KVDB_BUCKET}
-    #  - revert-migrations
-    #   - destroy-enviroment
+      #- revert-migrations
+      #- destroy-enviroment
 
 #   deploy-frontend:
 #     docker:
