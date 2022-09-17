@@ -312,10 +312,10 @@ jobs:
           - attach_workspace:
                at: ~/
           - run:
-              name: Install dependencies
+              name: Install dist folder
               command: |
                cd backend 
-               npm install
+               npm run build
                tar -czf artifact.tar.gz dist/* package*
                cd ..
                cp backend/artifact.tar.gz .circleci/ansible/roles/deploy/files
@@ -413,7 +413,7 @@ workflows:
       - run-migrations:
           requires: [configure-infrastructure]
       - deploy-frontend:
-          requires: [run-migrations]
+          requires: [deploy-backend]
       - deploy-backend:
           requires: [run-migrations]
       # - smoke-test:
