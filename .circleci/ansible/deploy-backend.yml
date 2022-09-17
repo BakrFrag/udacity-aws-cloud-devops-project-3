@@ -1,5 +1,3 @@
----
-
 - name: "configuration play." 
   hosts: web
   user: ubuntu
@@ -11,20 +9,20 @@
   environments:
     NODE ENV: production 
     VERSION: "1"
-    TYPEORM_CONNECTION: "{{ loakup('env% 'TYPEORM_CONNECTION) })"
-    TYPEORM_MIGRATIONS_DIR: "{( lookup('env% 'TYPEORM_MIGRATIONS_DIR ))"
-    TYPEORM_ENTITIES: "{{ lookup('env*, 'TYPEORM_ENTITIES') }}"
-    TYPEORN_MIGRATIONS: "({ lookup('env', 'TYPEORM_MIGRATIONS') }}" 
-    TYPEORN_HOST: "{{ lookup('env, 'TYPEORM_HOST') }}"
-    TYPEORN_PORT: "{{ lookup('env', 'TYPEORM_PORT') }}"
-    TYPEORM_DATABASE: "{{ ookup('env', 'TYPEORM_DATABASE') }}"
+    TYPEORM_CONNECTION: "{{ lookup('env' , 'TYPEORM_CONNECTION') }}"
+    TYPEORM_MIGRATIONS_DIR: "{{ lookup('env' , 'TYPEORM_MIGRATIONS_DIR' ) }}"
+    TYPEORM_ENTITIES: "{{ lookup('env' , 'TYPEORM_ENTITIES') }}"
+    TYPEORN_MIGRATIONS: "{{ lookup('env' , 'TYPEORM_MIGRATIONS') }}" 
+    TYPEORN_HOST: "{{ lookup('env' , 'TYPEORM_HOST') }}"
+    TYPEORN_PORT: "{{ lookup('env' , 'TYPEORM_PORT') }}"
+    TYPEORM_DATABASE: "{{ lookup('env' , 'TYPEORM_DATABASE') }}"
   pre_tasks:  
     - name: "wait 600 seconds for target connection to become reachable/usable." 
       wait_for_connection: 
          timeout: 600
     - name: "install python for Ansible"
       become: true 
-      raw: test -e /uSr/bin/python3 II (apt -y update 88 apt install -y python3) 
+      raw: test -e /uSr/bin/python3 || (apt -y update 88 apt install -y python3) 
       changed_when: false 
     - setup: 
 
