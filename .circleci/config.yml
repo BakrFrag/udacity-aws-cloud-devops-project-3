@@ -285,9 +285,13 @@ jobs:
             --output text 
             )
             export API_URL="http://${BACKEND_Instance_IP}:3030" >> frontend/.env
+            echo "API Url"
             echo $(API_URL)
+            echo "Backend Ip"
+            echo $(Backend_Instance_IP)
             echo $(pwd)
-            cat /frontend/.env
+            cd frontend
+            echo $(cat .env)
       - run:
           name: Deploy frontend objects
           command: |
