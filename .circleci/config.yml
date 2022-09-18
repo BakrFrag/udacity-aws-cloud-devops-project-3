@@ -284,8 +284,8 @@ jobs:
             --query 'Reservations[*].Instances[*].PublicIpAddress' \
             --output text 
             )
-            echo "export http://${BACKEND_Instance_IP}:3030 >> frontend/.env"
-            echo "http://${BACKEND_Instance_IP}:3030" >> frontend/.env
+            echo "export http://${Backend_Instance_IP}:3030 >> frontend/.env"
+            echo "http://${Backend_Instance_IP}:3030" >> frontend/.env
             
             
             echo $(pwd)
