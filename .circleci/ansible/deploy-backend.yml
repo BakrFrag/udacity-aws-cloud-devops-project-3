@@ -1,11 +1,11 @@
 ---
 - name: "deployment play." 
   hosts: web
-  remote_user: ubuntu
+  user: ubuntu
   become: true
   become_method: sudo
   become_user: root  
-  gather_facts: false
+ # gather_facts: false
   
   vars:
     - ansible_python_interpreter: /usr/bin/python3
