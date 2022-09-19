@@ -400,8 +400,8 @@ jobs:
       - image: cimg/base:stable
     steps:
       - checkout
-      - install_awscli
-      - install_nodejs
+      - install-awscli
+      - install-nodejs
       - run:
           name: Remove old stacks and files
           command: |
