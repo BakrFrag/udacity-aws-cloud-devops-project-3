@@ -27,7 +27,7 @@ commands:
               sudo apt-add-repository ppa:ansible/ansible
               sudo apt install ansible -y 
              
-    destroy-enviroment:
+   destroy-environment:
       description: Destroy back-end and front-end cloudformation stacks given a workflow ID.
       parameters:
         Workflow_ID:
@@ -199,7 +199,7 @@ jobs:
           root: ~/
           paths:
             - project/.circleci/ansible/inventory.txt
-      - destroy-enviroment
+      -destroy-environment
 
   configure-infrastructure:
     docker:
@@ -218,7 +218,7 @@ jobs:
            cd .circleci/ansible 
            cat inventory.txt 
            ansible-playbook -i inventory.txt configure-server.yml
-      - destroy-enviroment
+      -destroy-environment
      
 
   run-migrations:
@@ -263,7 +263,7 @@ jobs:
             echo "KVDB_BUCKET"
             echo $(${KVDB_BUCKET})
       - revert-migrations
-      - destroy-enviroment
+      -destroy-environment
 
   deploy-frontend:
      docker:
@@ -334,7 +334,7 @@ jobs:
                 echo $(cat inventory.txt)
                 ansible-playbook -i inventory.txt deploy-backend.yml 
           - revert-migrations
-          - destroy-enviroment
+          -destroy-environment
         
 
   smoke-test:
@@ -368,8 +368,8 @@ jobs:
                 else
                   exit 2
                 fi
-          - destroy-environment
           - revert-migrations
+          - destroy-environment
 #   cloudfront-update:
 #     docker:
 #       # Docker image here that supports AWS CLI
