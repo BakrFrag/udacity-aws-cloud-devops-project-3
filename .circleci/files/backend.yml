@@ -42,8 +42,8 @@ Resources:
         - Key: Project
           Value: Udapeople
   
-  InstanceEIP: 
-    Type: AWS::EC2::EIP
-    Properties:
-      Domain: vpc
-      Instance: !Ref EC2Instance
+  # InstanceEIP: 
+  #   Type: AWS::EC2::EIP
+  #   Properties:
+  #     Domain: vpc
+  #     Instance: !Ref EC2Instance
